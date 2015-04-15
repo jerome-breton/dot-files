@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=tilda
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[fr_FR]=tilda.desktop
+Name=Tilda
+Comment[fr_FR]=
+Comment=
