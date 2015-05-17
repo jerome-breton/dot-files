@@ -9,3 +9,5 @@
 	helper = store
 [push]
 	default = simple
+[core]
+	editor = geany
