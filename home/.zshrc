@@ -79,3 +79,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll="ls -hal"
+alias fuck='$(thefuck $(fc -ln -1))'
+alias FUCK='fuck'
+alias composer='php ~/Applications/composer.phar'
+alias n98='php ~/Applications/n98-magerun.phar'
+alias mage='~/Projets/_Perso/magento2-cli-tool/magento2-cli-tool.sh'
