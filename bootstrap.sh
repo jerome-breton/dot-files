@@ -1,8 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-cd bootstrap
+cd bootstrap > /dev/null
 for script in `find -type f`
 do
-  /usr/bin/env bash $script
+  echo - Running $script  
+  /bin/bash $script
 done
-cd -
+cd - > /dev/null

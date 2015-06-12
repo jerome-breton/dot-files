@@ -11,3 +11,4 @@
 	default = simple
 [core]
 	autocrlf = input
+	editor = geany
