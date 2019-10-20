@@ -1,9 +1,6 @@
-location:/usr/share/applications/google-chrome-beta.desktop
+location:/usr/share/applications/google-chrome.desktop
 separator
-location:/usr/share/applications/mate-calc.desktop
-location:/usr/share/applications/pluma.desktop
-location:/usr/share/applications/mate-terminal.desktop
-location:/usr/share/applications/mate-volume-control.desktop
+location:/usr/share/applications/xed.desktop
+location:/home/jerome/.local/share/applications/jetbrains-phpstorm.desktop
 separator
-location:/usr/share/applications/mate-display-properties.desktop
-location:/usr/share/applications/mate-system-monitor.desktop
+separator

@@ -49,7 +49,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/jerome/.rubies/ruby-2.2.4/bin:/home/jerome/.local/bin:/home/jerome/bin:/home/jerome/bin/pebble-dev/pebble-sdk-4.3-linux64/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -81,7 +81,29 @@ source $ZSH/oh-my-zsh.sh
 alias ll="ls -hal"
 alias fuck='$(thefuck $(fc -ln -1))'
 alias FUCK='fuck'
-alias composer='php ~/Applications/composer.phar'
-alias n98='php ~/Applications/n98-magerun.phar'
 alias mage='~/Projets/_Perso/magento2-cli-tool/magento2-cli-tool.sh'
-alias happybirthday='echo "Happy Birthday"'
+alias sl='sl && ls -h'
+alias gti='~/bin/gti.sh'
+alias lessc='docker run --rm -v `pwd`:/app evolution7/nodejs-less'
+alias grunt='docker run -t --rm -v `pwd`:/srv huli/grunt:alpine'
+alias sass='docker run --rm -t --user 1000:1000 -v `pwd`:/var/www catchdigital/node-sass node-sass'
+
+if [ -d /etc/profile.d ]; then
+  for i in /etc/profile.d/*.sh; do
+    if [ -r $i ]; then
+      . $i
+    fi
+  done
+  unset i
+fi
+
+# added by travis gem
+[ -f /home/jerome/.travis/travis.sh ] && source /home/jerome/.travis/travis.sh
+
+PATH="/home/jerome/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/jerome/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/jerome/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/jerome/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/jerome/perl5"; export PERL_MM_OPT;
+
+export GOPATH=$HOME/go

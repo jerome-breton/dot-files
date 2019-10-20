@@ -7,3 +7,5 @@ do
   /bin/bash $script
 done
 cd - > /dev/null
+
+alsactl restore

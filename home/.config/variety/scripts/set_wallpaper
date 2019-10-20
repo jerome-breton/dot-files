@@ -28,6 +28,23 @@ WP=$1
 rm /usr/share/backgrounds/variety.jpg
 cp $1 /usr/share/backgrounds/variety.jpg
 
+# Nitrogen
+if command -v nitrogen >/dev/null 2>&1; then
+    ## Get the current number of screens (default to all = -1)
+    screen=-1
+    # If xrandr is available use it to get screen count and change alternatively each screen
+    if command -v xrandr >/dev/null 2>&1; then
+        screen_count=$(xrandr -q | grep ' connected' | wc -l)
+        touch ~/.config/nitrogen/variety-next-screen.txt
+        read screen < ~/.config/nitrogen/variety-next-screen.txt
+        screen=$(( 0$screen % screen_count ))
+        next_screen=$(( $screen + 1 ))
+        echo $next_screen > ~/.config/nitrogen/variety-next-screen.txt
+    fi
+
+    nitrogen --head=$screen --set-zoom-fill $WP
+    exit 0
+fi
 
 # Enlightenment
 # Needs Modules/System/DBus Extension loaded to work
@@ -82,7 +99,7 @@ if [ "`echo $DESKTOP | grep Enlightenment`" ]; then
     ## Get the current number of virtual desktops
     desk_x_count=$(enlightenment_remote -desktops-get | awk '{print $1}')
     desk_y_count=$(enlightenment_remote -desktops-get | awk '{print $2}')
-    
+
     ## Get the current number of screens
     screen_count=1
     # If xrandr is available use it to get screen desk_x_count
@@ -111,7 +128,7 @@ if [ "`echo $DESKTOP | grep Enlightenment`" ]; then
     else
         find $OUTPUT_DIR -name "variety_wallpaper*.*" | grep -v "$OFILE.edj" | xargs rm
     fi
-    echo "$OFILE.edj" > $LAST_WALLPAPER_FILE 
+    echo "$OFILE.edj" > $LAST_WALLPAPER_FILE
     exit 0
 fi
 

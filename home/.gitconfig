@@ -2,13 +2,16 @@
 	postBuffer = 524288000
 [user]
 	name = Jérôme Breton
-	email = jbreton@sqli.com
+	email = jerome.breton@gmail.com
 [merge]
 	tool = meld
+	renamelimit = 5000
 [credential]
 	helper = store
 [push]
 	default = simple
 [core]
 	autocrlf = input
-	editor = geany
+	editor = xed
+[status]
+	showUntrackedFiles = all
