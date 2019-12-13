@@ -49,10 +49,12 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/jerome/.rubies/ruby-2.2.4/bin:/home/jerome/.local/bin:/home/jerome/bin:/home/jerome/bin/pebble-dev/pebble-sdk-4.3-linux64/bin"
+#export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/jerome/.rubies/ruby-2.2.4/bin:/home/jerome/.local/bin:/home/jerome/bin:/home/jerome/bin/pebble-dev/pebble-sdk-4.3-linux64/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/jerome/.rubies/ruby-2.2.4/bin:/home/jerome/.local/bin:/home/jerome/bin:/home/jerome/bin/pebble-dev/pebble-sdk-4.3-linux64/bin"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -87,6 +89,9 @@ alias gti='~/bin/gti.sh'
 alias lessc='docker run --rm -v `pwd`:/app evolution7/nodejs-less'
 alias grunt='docker run -t --rm -v `pwd`:/srv huli/grunt:alpine'
 alias sass='docker run --rm -t --user 1000:1000 -v `pwd`:/var/www catchdigital/node-sass node-sass'
+alias composer-base='docker run --rm --interactive --env COMPOSER_HOME=/composer --user=$UID:$GID --tty --volume ~/.composer:/composer --volume /etc/passwd:/etc/passwd --volume ~/.ssh:$HOME/.ssh --volume `pwd`:/app composer'
+alias composer='composer-base composer'
+alias php='composer-base php'
 
 if [ -d /etc/profile.d ]; then
   for i in /etc/profile.d/*.sh; do

@@ -25,7 +25,9 @@
 # In the end put the path to the actual final wallpaper image file in the WP variable.
 # The default is to simply set WP=$1.
 WP=$1
-rm /usr/share/backgrounds/variety.jpg
+rm /usr/share/backgrounds/variety-2.jpg
+mv /usr/share/backgrounds/variety-1.jpg /usr/share/backgrounds/variety-2.jpg
+mv /usr/share/backgrounds/variety.jpg /usr/share/backgrounds/variety-1.jpg
 cp $1 /usr/share/backgrounds/variety.jpg
 
 # Nitrogen
@@ -35,11 +37,11 @@ if command -v nitrogen >/dev/null 2>&1; then
     # If xrandr is available use it to get screen count and change alternatively each screen
     if command -v xrandr >/dev/null 2>&1; then
         screen_count=$(xrandr -q | grep ' connected' | wc -l)
-        touch ~/.config/nitrogen/variety-next-screen.txt
-        read screen < ~/.config/nitrogen/variety-next-screen.txt
+        touch ~/.config/variety/scripts/variety-next-screen.txt
+        read screen < ~/.config/variety/scripts/variety-next-screen.txt
         screen=$(( 0$screen % screen_count ))
         next_screen=$(( $screen + 1 ))
-        echo $next_screen > ~/.config/nitrogen/variety-next-screen.txt
+        echo $next_screen > ~/.config/variety/scripts/variety-next-screen.txt
     fi
 
     nitrogen --head=$screen --set-zoom-fill $WP
